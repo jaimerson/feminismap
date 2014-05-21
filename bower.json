@@ -1,0 +1,23 @@
+{
+  "name": "feminismap-frontend",
+  "version": "0.0.0",
+  "authors": [
+    "James <jaimersonaraujo@gmail.com>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "d3": "~3.4.8"
+  }
+}
