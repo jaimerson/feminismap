@@ -12,8 +12,8 @@ d3.json('brasil.json', function(error, data){
   console.log(data);
 
   var subunits = topojson.feature(data, data.objects.uf),
-      projection = d3.geo.mercator()
-        .translate([width / 2, height / 2]),
+      projection = d3.geo.mercator().scale(600)
+        .translate([width * 1.3, height * 0.2]),
       path = d3.geo.path().projection(projection);
 
   g.append('path')
