@@ -1,11 +1,25 @@
 var width = 600,
     height = 600;
 
-var svg = d3.select('#map').append('svg')
+var svg = d3.select('body').append('svg')
   .attr('width', width)
   .attr('height', height);
 
-d3.json('brasil.json', function(data){
+var g = svg.append('g');
+
+d3.json('brasil.json', function(error, data){
+  if(error) return console.log(error);
   console.log(data);
-  svg.append('svg:path');
+
+  var subunits = topojson.feature(data, data.objects.uf),
+      projection = d3.geo.mercator()
+        .translate([width / 2, height / 2]),
+      path = d3.geo.path().projection(projection);
+
+  g.append('path')
+    .datum(subunits)
+    .attr('d', path);
+
+  u = g;
+  console.log(g);
 });
