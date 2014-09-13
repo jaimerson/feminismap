@@ -16,10 +16,10 @@ d3.json('brasil.json', function(error, data){
         .translate([width * 1.3, height * 0.2]),
       path = d3.geo.path().projection(projection);
 
-  g.append('path')
-    .datum(subunits)
-    .attr('d', path);
 
-  u = g;
-  console.log(g);
+  svg.selectAll('.uf')
+    .data(subunits.features)
+    .enter().append('path')
+    .attr('class', function(d) { return 'subunit ' + d.id})
+    .attr('d', path);
 });
